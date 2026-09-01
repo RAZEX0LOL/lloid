@@ -1,11 +1,11 @@
 # Lloyd Consulting Website
 
-A responsive corporate website for an audit and business-consulting company. The interface presents
-services, company background, contacts, and the statutory disclosure required for an audit firm.
+A production corporate website delivered for an audit and business-consulting company. The interface
+presents services, company background, contacts, and the statutory disclosure required for an audit firm.
 
 ![Lloyd Consulting home page](docs/images/lloyd-consulting-home.png)
 
-[Live demo](https://razex0lol.github.io/lloid/) · Content language: Russian
+[Production website](https://ллойд.рф) · Client project · Content language: Russian
 
 ## Highlights
 
