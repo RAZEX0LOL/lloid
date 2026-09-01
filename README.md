@@ -1,12 +1,48 @@
-# React + Vite
+# Lloyd Consulting Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive corporate website for an audit and business-consulting company. The interface presents
+services, company background, contacts, and the statutory disclosure required for an audit firm.
 
-Currently, two official plugins are available:
+![Lloyd Consulting home page](docs/images/lloyd-consulting-home.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Live demo](https://razex0lol.github.io/lloid/) · Content language: Russian
 
-## Expanding the ESLint configuration
+## Highlights
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Responsive navigation with a compact mobile menu
+- Service, company, contact, and statutory-disclosure routes
+- Keyboard-accessible links and labelled menu controls
+- Click-to-call and email actions plus an embedded office map
+- Static deployment with no cookies, account, database, or build-time secrets
+
+## Stack
+
+- React 19 and React Router 7
+- Vite 7 and Tailwind CSS 4
+- Lucide icons
+- ESLint and Bun 1.4
+- GitHub Actions, dependency audit, Dependabot, and GitHub Pages
+
+## Local development
+
+```bash
+git clone https://github.com/RAZEX0LOL/lloid.git
+cd lloid
+bun install --frozen-lockfile
+bun run dev
+```
+
+Verify the production path:
+
+```bash
+bun run check
+bun audit --production
+```
+
+The repository contains the frontend implementation only. Business claims and statutory information
+are supplied as website content and are not independently verified by this codebase.
+
+## Rights
+
+The company name, logo, copy, and statutory information belong to their respective owner. No
+open-source licence is granted for those materials.

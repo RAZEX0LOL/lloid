@@ -7,9 +7,6 @@ export default function Home() {
         <div className="w-full bg-gradient-to-br from-purple-300 via-purple-100 to-white">
             {/* ---------- HERO ---------- */}
             <section className="relative flex flex-col items-center text-center py-24 px-4">
-                {/* декоративная волна поверх градиента */}
-                <div className="absolute inset-0 bg-[url('/assets/abstract-wave.svg')] bg-no-repeat bg-top opacity-10 pointer-events-none" />
-
                 <h1 className="text-4xl md:text-5xl font-extrabold text-blue-600 mb-6">
                     О&nbsp;нас
                 </h1>

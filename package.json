@@ -1,13 +1,16 @@
 {
   "name": "lloid",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Responsive corporate website for a Russian audit and consulting company.",
+  "packageManager": "bun@1.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint . --max-warnings 0",
+    "preview": "vite preview",
+    "check": "bun run lint && bun run build"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",

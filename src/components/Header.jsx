@@ -29,7 +29,7 @@ export function Header() {
             </span>
                     </div>
 
-                    {/* desktop nav  ▶︎ видно ТОЛЬКО ≥ 856 px */}
+                    {/* Desktop navigation, visible from 856 px. */}
                     <nav className="hidden min-[856px]:flex gap-6">
                         {nav.map(({ to, label }) => (
                             <Link
@@ -43,10 +43,13 @@ export function Header() {
                         ))}
                     </nav>
 
-                    {/* burger   ▶︎ видно ≤ 855 px */}
+                    {/* Mobile menu, visible up to 855 px. */}
                     <button
+                        type="button"
                         onClick={() => setOpen(true)}
                         aria-label="Открыть меню"
+                        aria-expanded={open}
+                        aria-controls="mobile-navigation"
                         className="hidden max-[855px]:block p-2 rounded-md text-blue-600 hover:bg-blue-50"
                     >
                         <Menu size={32} />
@@ -54,45 +57,47 @@ export function Header() {
                 </div>
             </header>
 
-            {/* ─── MOBILE SIDEBAR ──────────────────────────────────────── */}
-            {/* overlay */}
-            <div
-                onClick={() => setOpen(false)}
-                className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity
-                    ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-            />
-
-            {/* drawer */}
-            <aside
-                className={`fixed top-0 right-0 h-full w-72 bg-white shadow-lg z-50
-                    transform transition-transform duration-300 text-xl
-                    ${open ? "translate-x-0" : "translate-x-full"}`}
-            >
-                <div className="flex items-center justify-between p-4 border-b">
-                    <span className="font-bold text-blue-600">Меню</span>
+            {open ? (
+                <>
                     <button
+                        type="button"
                         onClick={() => setOpen(false)}
                         aria-label="Закрыть меню"
-                        className="p-2 rounded-md text-blue-600 hover:bg-blue-50"
+                        className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+                    />
+                    <aside
+                        id="mobile-navigation"
+                        aria-label="Мобильная навигация"
+                        className="fixed right-0 top-0 z-50 h-full w-72 bg-white text-xl shadow-lg"
                     >
-                        <X size={28} />
-                    </button>
-                </div>
+                        <div className="flex items-center justify-between border-b p-4">
+                            <span className="font-bold text-blue-600">Меню</span>
+                            <button
+                                type="button"
+                                onClick={() => setOpen(false)}
+                                aria-label="Закрыть меню"
+                                className="rounded-md p-2 text-blue-600 hover:bg-blue-50"
+                            >
+                                <X size={28} />
+                            </button>
+                        </div>
 
-                <nav className="flex flex-col gap-4 p-4">
-                    {nav.map(({ to, label }) => (
-                        <Link
-                            key={to}
-                            to={to}
-                            onClick={() => setOpen(false)}
-                            className={`text-blue-600 hover:text-purple-600 text-2xl font-medium transition
-                           ${pathname === to ? "underline text-purple-600" : ""}`}
-                        >
-                            {label}
-                        </Link>
-                    ))}
-                </nav>
-            </aside>
+                        <nav className="flex flex-col gap-4 p-4">
+                            {nav.map(({ to, label }) => (
+                                <Link
+                                    key={to}
+                                    to={to}
+                                    onClick={() => setOpen(false)}
+                                    className={`text-2xl font-medium text-blue-600 transition hover:text-purple-600
+                                    ${pathname === to ? "text-purple-600 underline" : ""}`}
+                                >
+                                    {label}
+                                </Link>
+                            ))}
+                        </nav>
+                    </aside>
+                </>
+            ) : null}
         </>
     );
 }
